@@ -1,16 +1,25 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-
-
-export default function Card(props) {
+// Finalmente dirígete al componente Card y pasále el id que recibes por props a la funcion onClose cuando se ejecuta.
+function Card({ id, name, species, gender, image, onClose }) {
+    function handleClick() {
+        onClose(id);
+    }
     return (
         <div>
-            <img src={props.image} alt='' />
-            <h2>{props.name}</h2>
-            <h2>{props.status}</h2>
-            <h2>{props.species}</h2>
-            <h2>{props.gender}</h2>
-            <h2>{props.origin.name}</h2>
-            <button onClick={props.onClose}>X</button>
+            <img src={image} alt={name} />
+            <Link to={`/detail/${id}`}>
+                <h3 className='card-name'>{name}</h3>
+            </Link>
+            <p>
+                {name} <br />
+                {species} <br />
+                {gender} <br />
+            </p>
+            <button onClick={handleClick}>X</button>
         </div>
     );
 }
+
+export default Card;

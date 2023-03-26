@@ -1,9 +1,25 @@
 import Card from './Card';
+// Dirígete al componente Cards y envíale el id del personaje como propiedad al componente Card.
 
-export default function Cards(props) {
+
+function Cards({ characters, onClose }) {
     return <div>
-        {props.characters.map(character => <Card key={character.id} {...character} onClose={() => {
-            window.alert('Emulamos que se cierra la card');
-        }} />)}
+        {characters.map((character) => (
+            <Card
+                key={character.id}
+                id={character.id}
+                name={character.name}
+                age={character.age}
+                gender={character.gender}
+                image={character.image}
+                species={character.species}
+                location={character.location.name}
+                origin={character.origin.name}
+                onClose={onClose}
+            />
+        ))}
     </div>;
 }
+
+
+export default Cards;   
