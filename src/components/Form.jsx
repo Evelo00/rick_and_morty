@@ -1,34 +1,59 @@
 import React from 'react';
 import { login } from './validation';
 
-const Form = () => {
+const Form = ({isAuth}) => {
     const [userData, setUserData] = React.useState({
         email: '',
         password: '',
     });
-    const handleChange = (e) => {
+
+    const handleChange = (event) => {
         setUserData({
             ...userData,
-            [e.target.name]: e.target.value,
+            [event.target.name]: event.target.value,
         });
     };
     //   En el componente Form crea una función "handleSubmit".Esta función recibe un evento por parámetro.Deberás ejecutas la función e.preventDefault().Luego ejecuta la función "login" recibida por props. ¡No te olvides de pasarle por parámetro tu estado local userData!
     
-    const handleSubmit = (e) => {
-        e.preventDefault();
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        const { email, password } = userData;
+        const isAuth = login(email, password);
+
+        if (loginSuccess) {
+            // Redirige al usuario a la página principal de la aplicación
+            // Ejemplo: history.push('/home');
+        } else {
+            // Muestra un mensaje de error al usuario
+            setError('Email o contraseña incorrectos');
+        }
     };
     
 
-    const [error, setError] = React.useState({});
+    const [error, setError] = React.useState('');
 
 
     return (
         <form onSubmit={handleSubmit}>
             <label htmlFor="email">Email</label>
-            <input type="email" name="email" id="email" />
+            <input 
+            type="email" 
+            name="email" 
+            id="email"
+            value={userData.email}
+            onChange={handleChange}
+            />
             <label htmlFor="password">Password</label>
-            <input type="password" name="password" id="password" />
+            <input 
+            type="password" 
+            name="password" 
+            id="password" 
+            value={userData.password}
+            onChange={handleChange}
+            />
             <button type="submit">Submit</button>
+            {error && <p>{error}</p>}
+
         </form>
     );
 }

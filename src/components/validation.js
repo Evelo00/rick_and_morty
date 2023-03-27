@@ -2,8 +2,13 @@ function validate(email, password) {
     // Regular expression for email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+    // Check if email and password exist
+    if (!email || !password) {
+        return false;
+    }
+
     // Check if email is empty or exceeds 35 characters
-    if (!email || email.length > 35) {
+    if (email.length > 35) {
         return false;
     }
 
@@ -19,3 +24,6 @@ function validate(email, password) {
 
     return true;
 }
+
+
+export default validate;
