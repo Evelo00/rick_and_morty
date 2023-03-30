@@ -1,5 +1,5 @@
 import Card from './Card';
-// Dirígete al componente Cards y envíale el id del personaje como propiedad al componente Card.
+
 
 
 function Cards({ characters, onClose }) {

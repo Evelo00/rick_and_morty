@@ -7,6 +7,7 @@ import { useState, useEffect } from 'react';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import validate from './components/validation.js';
+import Favorites from './components/Favorites/Favorites';
 
 function Form({ setAccess, access }) {
   const [initialUserData, setInitialUserData] = useState({
@@ -30,14 +31,14 @@ function Form({ setAccess, access }) {
 
   function handleInputChange(event) {
     const { name, value } = event.target;
-    setInitialUserData((prevUserData) => ({ ...prevUserData, [name]: value }));
 
     if (name === 'email') {
-      const isValidEmail = validate(value, initialUserData.password);
-      if (!isValidEmail) {
+      if (value !== '' && !validate(value, initialUserData.password)) {
         window.alert('El correo electrónico ingresado no es válido');
       }
     }
+
+    setInitialUserData((prevUserData) => ({ ...prevUserData, [name]: value }));
   }
 
   useEffect(() => {
@@ -103,6 +104,7 @@ function App() {
             <Route path="/home" element={<Cards onClose={onClose} characters={characters} />} />
             <Route path="/about" element={<About />} />
             <Route path="/detail/:id" element={<Detail />} />
+            <Route path="/favorites" element={<Favorites />} />
           </>
         )}
       </Routes>

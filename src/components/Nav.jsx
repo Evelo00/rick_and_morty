@@ -18,6 +18,7 @@ function Nav({onSearch, access}) {
          <SearchBar onSearch={onSearch} />
          <Link to="/about">About</Link>
          <Link to="/home">Home</Link>
+         <Link to="/favorites">Favorites</Link>
       </nav>
    );
 }
