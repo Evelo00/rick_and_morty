@@ -4,8 +4,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useState, useEffect } from 'react';
 import { addFavorite, deleteFavorite } from '../redux/actions';
 
+
 // Finalmente dirígete al componente Card y pasále el id que recibes por props a la funcion onClose cuando se ejecuta.
-function Card({ id, name, species, gender, image, onClose }) {
+function Card({ id, name, species, gender, image, onClose, location, origin, age }) {
     const dispatch = useDispatch();
     const [isFav , setIsFav] = useState(false);
     const myFavorites = useSelector((state) => state.favorites);
@@ -17,7 +18,7 @@ function Card({ id, name, species, gender, image, onClose }) {
         }
         else {
             setIsFav(true)
-            dispatch(addFavorite({ id, name, species, gender, image, onClose }))
+            dispatch(addFavorite({ id, name, species, gender, image, location, origin, age }))
         }
     }
 

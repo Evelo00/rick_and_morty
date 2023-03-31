@@ -10,13 +10,18 @@ import validate from './components/validation.js';
 import Favorites from './components/Favorites/Favorites';
 
 function Form({ setAccess, access }) {
+  const [errors, setErrors] = useState({
+    email: '',
+    password: '',
+  });
+
   const [initialUserData, setInitialUserData] = useState({
     email: '',
     password: '',
   });
   const navigate = useNavigate();
   const EMAIL = 'ejemplo@gmail.com';
-  const PASSWORD = 'unaPassword';
+  const PASSWORD = 'Password1';
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -30,15 +35,30 @@ function Form({ setAccess, access }) {
   }
 
   function handleInputChange(event) {
-    const { name, value } = event.target;
-
-    if (name === 'email') {
-      if (value !== '' && !validate(value, initialUserData.password)) {
-        window.alert('El correo electrónico ingresado no es válido');
-      }
-    }
-
+    const { name, value } = event.target;  
+    // setErrors((prevErrors) => ({
+    //   ...prevErrors,
+    //   [name]: '',
+    // }));
+    // if (name === 'email') {
+    //   if (value !== '' && !validate(name, value)) {
+    //     setErrors({
+    //       ...errors,
+    //       email: 'El correo electrónico ingresado no es válido',
+    //     });
+    //   }
+    // }
+    // else if (name === 'password') {
+    //   if (value !== '' && !validate(name, value)) {
+    //     setErrors({
+    //       ...errors,
+    //       password: 'La contraseña no es válida',
+    //     });
+    //   }
+    // }
+    
     setInitialUserData((prevUserData) => ({ ...prevUserData, [name]: value }));
+    setErrors(validate({...initialUserData, [name]: value }))
   }
 
   useEffect(() => {
@@ -53,18 +73,20 @@ function Form({ setAccess, access }) {
         type="email"
         name="email"
         placeholder="Email"
-        value={initialUserData.email}
+        
         onChange={handleInputChange}
         required
       />
+      <p>{errors.email}</p>
       <input
         type="password"
         name="password"
         placeholder="Password"
-        value={initialUserData.password}
+        
         onChange={handleInputChange}
         required
       />
+      <p>{errors.password}</p>
       <button type="submit">Login</button>
     </form>
   );

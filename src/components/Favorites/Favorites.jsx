@@ -1,7 +1,8 @@
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { orderCards, filterCards } from "../../redux/actions";
 import { useDispatch } from "react-redux";
+import Card from '../Card';
 
 const Favorites = () => {
     const dispatch = useDispatch();
@@ -35,22 +36,35 @@ const Favorites = () => {
             <option value="unknown">unknown</option>
             </select>
 
-            {myFavorites ?  (
-            myFavorites.map((character) => {
-                    return (
-                        <div key={character.id}>
-                            <img src={character.image} alt={character.name} />
-                            <Link to={`/detail/${character.id}`}>
-                                <h2 className='card-name'>{character.name}</h2>
-                            </Link>
-                            <p>
-                                <h2> {character.species} <br /></h2> 
-                                <h2>{character.gender} <br /></h2> 
-                            </p>
-                        </div>
-                    )
-                })
-    ) : ( <h1> No hay personajes favoritos </h1>)
+            {myFavorites.map(character => {
+                < Card 
+                    key={character.id}
+                    id={character.id}
+                    name={character.name}
+                    age={character.age}
+                    gender={character.gender}
+                    image={character.image}
+                    species={character.species}
+                    location={character.location}
+                    origin={character.origin}
+                    // onClose={onClose}
+                    />
+            })
+                
+                //     return (
+                //         <div key={character.id}>
+                //             <img src={character.image} alt={character.name} />
+                //             <Link to={`/detail/${character.id}`}>
+                //                 <h2 className='card-name'>{character.name}</h2>
+                //             </Link>
+                //             <p>
+                //                 <h2> {character.species} <br /></h2> 
+                //                 <h2>{character.gender} <br /></h2> 
+                //             </p>
+                //         </div>
+                //     )
+                // })
+    // ) : ( <h1> No hay personajes favoritos </h1>)
 
             }
             
