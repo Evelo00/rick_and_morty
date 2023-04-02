@@ -1,13 +1,14 @@
 import './App.css';
-import Cards from './components/Cards.jsx';
-import Nav from './components/Nav.jsx';
-import About from './components/About.jsx';
-import Detail from './components/Detail.jsx';
+import Cards from './components/Cards/Cards.jsx';
+import Nav from './components/Nav/Nav.jsx';
+import About from './components/About/About.jsx';
+import Detail from './components/Detail/Detail.jsx';
 import { useState, useEffect } from 'react';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import validate from './components/validation.js';
+import validate from './components/Validation/validation.js';
 import Favorites from './components/Favorites/Favorites';
+import './components/Form/Form.css';
 
 function Form({ setAccess, access }) {
   const [errors, setErrors] = useState({
@@ -36,26 +37,7 @@ function Form({ setAccess, access }) {
 
   function handleInputChange(event) {
     const { name, value } = event.target;  
-    // setErrors((prevErrors) => ({
-    //   ...prevErrors,
-    //   [name]: '',
-    // }));
-    // if (name === 'email') {
-    //   if (value !== '' && !validate(name, value)) {
-    //     setErrors({
-    //       ...errors,
-    //       email: 'El correo electrónico ingresado no es válido',
-    //     });
-    //   }
-    // }
-    // else if (name === 'password') {
-    //   if (value !== '' && !validate(name, value)) {
-    //     setErrors({
-    //       ...errors,
-    //       password: 'La contraseña no es válida',
-    //     });
-    //   }
-    // }
+
     
     setInitialUserData((prevUserData) => ({ ...prevUserData, [name]: value }));
     setErrors(validate({...initialUserData, [name]: value }))
@@ -68,8 +50,9 @@ function Form({ setAccess, access }) {
   }, [access, navigate]);
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
+    <form className='form-style' onSubmit={handleSubmit}>
+      <img className='form-img' src='https://d2lzb5v10mb0lj.cloudfront.net/covers/600/30/3007790.jpg' alt='imagen-login'></img>
+      <input className='form-input'
         type="email"
         name="email"
         placeholder="Email"
@@ -78,7 +61,7 @@ function Form({ setAccess, access }) {
         required
       />
       <p>{errors.email}</p>
-      <input
+      <input className='form-input'
         type="password"
         name="password"
         placeholder="Password"
@@ -87,7 +70,7 @@ function Form({ setAccess, access }) {
         required
       />
       <p>{errors.password}</p>
-      <button type="submit">Login</button>
+      <button className='form-button' type="submit">Login</button>
     </form>
   );
 }

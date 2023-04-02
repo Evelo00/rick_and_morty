@@ -1,7 +1,8 @@
 import React from 'react';
-import { login } from './validation';
+import { login } from '../Validation/validation';
+ import './Form.css';
 
-const Form = ({isAuth}) => {
+const Form = ({ isAuth }) => {
     const [userData, setUserData] = React.useState({
         email: '',
         password: '',
@@ -14,7 +15,7 @@ const Form = ({isAuth}) => {
         });
     };
     //   En el componente Form crea una función "handleSubmit".Esta función recibe un evento por parámetro.Deberás ejecutas la función e.preventDefault().Luego ejecuta la función "login" recibida por props. ¡No te olvides de pasarle por parámetro tu estado local userData!
-    
+
     const handleSubmit = (event) => {
         event.preventDefault();
         const { email, password } = userData;
@@ -28,33 +29,32 @@ const Form = ({isAuth}) => {
             setError('Email o contraseña incorrectos');
         }
     };
-    
+
 
     const [error, setError] = React.useState('');
 
 
-    return (
-        <form onSubmit={handleSubmit}>
-            <label htmlFor="email">Email</label>
-            <input 
-            type="email" 
-            name="email" 
-            id="email"
-            value={userData.email}
-            onChange={handleChange}
-            />
-            <label htmlFor="password">Password</label>
-            <input 
-            type="password" 
-            name="password" 
-            id="password" 
-            value={userData.password}
-            onChange={handleChange}
-            />
-            <button type="submit">Submit</button>
-            {error && <p>{error}</p>}
-
-        </form>
+    return (           
+            <form className='form-container' onSubmit={handleSubmit}>
+                <label htmlFor="email">Email</label>
+                <input className='form-input'
+                    type="email"
+                    name="email"
+                    id="email"
+                    value={userData.email}
+                    onChange={handleChange}
+                />
+                <label htmlFor="password">Password</label>
+                <input
+                    type="password"
+                    name="password"
+                    id="password"
+                    value={userData.password}
+                    onChange={handleChange}
+                />
+                <button className='form-button' type="submit">Submit</button>
+                {error && <p>{error}</p>}
+            </form>
     );
 }
 

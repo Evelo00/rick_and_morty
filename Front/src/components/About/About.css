@@ -1,0 +1,21 @@
+.about-container {
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 100%
+}
+
+.about-heading {
+    color: #333;
+    font-size: 3rem;
+    margin: 0 2rem;
+}
+
+.about-text {
+    color: #333;
+    font-size: 1.5rem;
+    margin: 2rem;
+    text-align: center;
+}

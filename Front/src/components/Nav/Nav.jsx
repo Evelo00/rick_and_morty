@@ -1,9 +1,8 @@
-import SearchBar from './SearchBar';
+import SearchBar from '../SearchBar/SearchBar';
 import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
+import './Nav.css';
 // import Cards from './Cards';
-
-// crearemos otro componente denominado Nav que será nuestra barra superior de navegación, el cual envolverá a la SearchBar.
 
    
 function Nav({onSearch, access}) {
@@ -14,11 +13,13 @@ function Nav({onSearch, access}) {
       return null;
    }
    return (
-      <nav>
+      <nav className="nav">
+         <Link className="nav-link" to="/about">About</Link>
+         <Link className="nav-link" to="/home">Home</Link>
+         <Link className="nav-link" to="/favorites">Favorites</Link>
+         <div className="search-container">
          <SearchBar onSearch={onSearch} />
-         <Link to="/about">About</Link>
-         <Link to="/home">Home</Link>
-         <Link to="/favorites">Favorites</Link>
+         </div>
       </nav>
    );
 }
