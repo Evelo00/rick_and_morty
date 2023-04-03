@@ -1,4 +1,4 @@
-import { ADD_FAVORITE, DELETE_FAVORITE, ORDER, FILTER} from './actionstypes';
+import { ADD_FAVORITE, DELETE_FAVORITE, ORDER, FILTER } from './actionstypes';
 
 export const filterCards = (gender) => {
     return {
@@ -8,13 +8,16 @@ export const filterCards = (gender) => {
 };
 
 export const orderCards = (orden) => {
- return {
+    return {
         type: ORDER,
         payload: orden
     }
 };
-export const addFavorite = (payload) => {
-    return { type: ADD_FAVORITE, payload: payload }
+export const addFavorite = (character) => {
+    return {
+        type: ADD_FAVORITE,
+        payload: character
+    }
 };
 
 export const deleteFavorite = (id) => {

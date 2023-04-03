@@ -1,13 +1,12 @@
 import { useSelector } from "react-redux";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { orderCards, filterCards } from "../../redux/actions";
 import { useDispatch } from "react-redux";
-import Card from '../Card/Card';
 
 
 const Favorites = () => {
     const dispatch = useDispatch();
-    const { myFavorites } = useSelector((state) => state.favorites) || {};
+    const { myFavorites } = useSelector((state) => state);
 
     let aux = false;
     const handleOrder = (e) => {
@@ -38,19 +37,20 @@ const Favorites = () => {
 
             {myFavorites && myFavorites.length > 0 ? (
                 myFavorites.map((character) => (
-                    
-                    <Card
-                        key={character.id}
-                        id={character.id}
-                        name={character.name}
-                        age={character.age}
-                        gender={character.gender}
-                        image={character.image}
-                        species={character.species}
-                        location={character.location}
-                        origin={character.origin}
-                        // onClose={handleClick}
-                    />
+                    <div>
+                        <img src={character.image} alt={character.name} />
+                        <Link to={`/detail/${character.id}`}>
+                            <h2 className='card-name'>{character.name}</h2>
+                        </Link>
+                        <p className='card-text'>
+                            <div>
+                                {character.species}
+                            </div>
+                            <div>
+                                {character.gender}
+                            </div>
+                        </p>
+                    </div>
                 ))
             ) : (
                 <h1>No hay personajes favoritos</h1>
