@@ -36,11 +36,11 @@ function Form({ setAccess, access }) {
   }
 
   function handleInputChange(event) {
-    const { name, value } = event.target;  
+    const { name, value } = event.target;
 
-    
+
     setInitialUserData((prevUserData) => ({ ...prevUserData, [name]: value }));
-    setErrors(validate({...initialUserData, [name]: value }))
+    setErrors(validate({ ...initialUserData, [name]: value }))
   }
 
   useEffect(() => {
@@ -50,28 +50,52 @@ function Form({ setAccess, access }) {
   }, [access, navigate]);
 
   return (
-    <form className='form-style' onSubmit={handleSubmit}>
-      <img className='form-img' src='https://d2lzb5v10mb0lj.cloudfront.net/covers/600/30/3007790.jpg' alt='imagen-login'></img>
-      <input className='form-input'
-        type="email"
-        name="email"
-        placeholder="Email"
-        
-        onChange={handleInputChange}
-        required
-      />
-      <p>{errors.email}</p>
-      <input className='form-input'
-        type="password"
-        name="password"
-        placeholder="Password"
-        
-        onChange={handleInputChange}
-        required
-      />
-      <p>{errors.password}</p>
-      <button className='form-button' type="submit">Login</button>
-    </form>
+    <div className='form-container'>
+
+      <div className='content'>
+        <h2 className='logo'><i class='bx bxs-cat' ></i>Eyver_Vergara</h2>
+        <div className='content-text'>
+          <h2>Welcome!<br></br><span>
+            Rick & Morty API</span></h2>
+          <p className='text'>En esta pagina, podras acceder a la wiki de esta gran serie, espero sea de tu agrado.</p>
+        </div>
+        <div className='social-icons'>
+          <a href='https://www.linkedin.com/in/eyvergara/' target='blank'><i class='bx bxl-linkedin'></i></a>
+          <a href='https://github.com/Evelo00'><i class='bx bxl-github' ></i></a>
+        </div>
+      </div>
+      <div className='logreg-box'>
+        <form className='form-box' onSubmit={handleSubmit}>
+          <h2 className='title'>Sing in</h2>
+          <div className='form-input'>
+            <span className='icon'><i class='bx bxs-envelope'></i></span>
+            <input className='inputForm'
+              type="email"
+              name="email"
+              placeholder="Email"
+              onChange={handleInputChange}
+              required
+            />
+            <label className='form-label'>Email</label>
+            <p>{errors.email}</p>
+          </div>
+          <div className='form-input'>
+            <span className='icon'><i class='bx bx-lock-alt' ></i></span>
+            <input className='inputForm'
+              type="password"
+              name="password"
+              placeholder="Password"
+              onChange={handleInputChange}
+              required
+            />
+            <label className='form-label'>Pass</label>
+            <p>{errors.password}</p>
+          </div>
+          <button className='form-button' type="submit">Login</button>
+        </form>
+
+      </div>
+    </div >
   );
 }
 

@@ -35,9 +35,9 @@ const Form = ({ isAuth }) => {
 
 
     return (           
-            <form className='form-container' onSubmit={handleSubmit}>
+            <form className='form-box' onSubmit={handleSubmit}>
                 <label htmlFor="email">Email</label>
-                <input className='form-input'
+                <input className='inputForm'
                     type="email"
                     name="email"
                     id="email"
@@ -45,7 +45,7 @@ const Form = ({ isAuth }) => {
                     onChange={handleChange}
                 />
                 <label htmlFor="password">Password</label>
-                <input
+                <input className='inputForm'
                     type="password"
                     name="password"
                     id="password"

@@ -38,6 +38,7 @@ const Favorites = () => {
 
             {myFavorites && myFavorites.length > 0 ? (
                 myFavorites.map((character) => (
+                    
                     <Card
                         key={character.id}
                         id={character.id}
