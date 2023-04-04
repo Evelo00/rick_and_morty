@@ -82,23 +82,32 @@
     align-items: center;
     width: 100%;
     height: 100%;
-    background: transparent;
+    background: transparent !important;
     flex-direction: column;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(2px);
     color: #e4e4e4;
 }
 
 .form-box h2{
-    font-size: 32px;
+    font-size: 40px;
     text-align: center;
+    z-index: 99;
+    border-bottom: 2px solid #e4e4e4;
+    padding: 10px 0;
 }
 
 .form-box .form-input {
-    width: 250px;
+    position: relative;
+    display: flex;
+    /* align-items: center; */
+    width: 300px;
     height: 50px;
     border-bottom: 2px solid #e4e4e4;
-    margin: 30px 0;
+    margin: 30px 0; 
     padding: 0 10px;
+    transition: .5s ease;
+    color: #fff;
+    z-index: 99;
 }
 
 .form-box .form-input:focus {
@@ -106,42 +115,87 @@
 }
 
 .form-input {
-    width: 200px;
+    width: 100px;
     padding: 10px;
     margin-bottom: 20px;
     border-radius: 5px;
-    border: 1px solid #ccc;
+    border: none;
     font-size: 1.1rem;
 }
 
 .form-button{
+    width: 280px;
     padding: 10px;
-    border: none;
-    border-radius: 5px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
     font-size: 1.1rem;
     font-weight: bold;
     color: #fff;
-    background-color: #008080;
+    background: transparent;
     cursor: pointer;
-    transition: background-color 0.2s ease;
+    transition: background-color 1s ease;
+    margin-top: 20px;
 }
 
 .form-button:hover {
-    background-color: #005b5b;
+    color: #333;
+    background-color: #ccc;
+    transition: 0.5s;
+    transform: scale(1.1);
 }
 
 form p {
-    font-size: 1.1rem;
-    color: #ff0000;
-    margin-top: 10px;
-    text-align: center;
+    font-size: 18px;
+    margin: 20px 0;
+    color: #fff;
+    margin: 0 0 10px 0;
+    padding: 0;
+    margin-bottom: 5px;
+
 } 
 
-.form-input input{
+.form-input .inputForm{
     width: 100%;
     height: 100%;
     border: none;
     outline: none;
     background: transparent;
     font-size: 16px;
+    color: #fff;
+    font-weight: 500;
+    padding-right: 28px;
+}
+
+.form-input .inputForm::placeholder {
+    color: #887777;
+}
+
+.form-input .inputForm:focus {
+    outline: none;
+}
+
+.form-input .label-input{
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    font-size: 16px;
+    color: #e4e4e4;
+    font-weight: 500;
+    pointer-events: none;
+    transition: .5s ease;
+}
+
+.form-input .inputForm:focus ~ .label-input,
+.form-input .inputForm:valid ~ .label-input{
+    top: -5px;
+}
+
+.form-input .icon-form{
+    position: absolute;
+    top: 13px;
+    right: 0;
+    font-size: 20px;
+    color: #e4e4e4;
+    transition: .5s ease;
 }

@@ -61,36 +61,36 @@ function Form({ setAccess, access }) {
         </div>
         <div className='social-icons'>
           <a href='https://www.linkedin.com/in/eyvergara/' target='blank'><i class='bx bxl-linkedin'></i></a>
-          <a href='https://github.com/Evelo00'><i class='bx bxl-github' ></i></a>
+          <a href='https://github.com/Evelo00' target='blank'><i class='bx bxl-github' ></i></a>
         </div>
       </div>
       <div className='logreg-box'>
         <form className='form-box' onSubmit={handleSubmit}>
-          <h2 className='title'>Sing in</h2>
+          <h2 className='title'>Sign in</h2>
           <div className='form-input'>
-            <span className='icon'><i class='bx bxs-envelope'></i></span>
+            <span className='icon-form'><i class='bx bxs-envelope'></i></span>
             <input className='inputForm'
               type="email"
               name="email"
-              placeholder="Email"
+              // placeholder="Email"
               onChange={handleInputChange}
               required
             />
-            <label className='form-label'>Email</label>
-            <p>{errors.email}</p>
+            <label className='label-input'>Email</label>
           </div>
           <div className='form-input'>
-            <span className='icon'><i class='bx bx-lock-alt' ></i></span>
+            <span className='icon-form'><i class='bx bx-lock-alt' ></i></span>
             <input className='inputForm'
               type="password"
               name="password"
-              placeholder="Password"
+              // placeholder="Password"
               onChange={handleInputChange}
               required
-            />
-            <label className='form-label'>Pass</label>
-            <p>{errors.password}</p>
+              />
+              <label className='label-input'>Password</label>
           </div>
+              <p>{errors.email}</p>
+            <p>{errors.password}</p>
           <button className='form-button' type="submit">Login</button>
         </form>
 
