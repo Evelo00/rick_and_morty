@@ -1,7 +1,11 @@
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
-  background: #020410;
+  background-image: url('C:\Users\eyver\OneDrive\Documents\henry\rick_and_morty\Front\public\FondoLogin.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

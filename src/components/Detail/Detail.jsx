@@ -37,12 +37,12 @@ const Detail = () => {
         </div>
         <div className="character-info-container">
 
-            {character.name && <p className="character-name">Name: {character.name}</p>}
-            {character.status && <p className="character-status">Status: {character.status}</p>}
-            {character.species && <p className="character-species">Species: {character.species}</p>}
-            {character.gender && <p className="character-gender">Gender: {character.gender}</p>}
+            {character.name && <p className="characters">Name: {character.name}</p>}
+            {character.species && <p className="characters">Species: {character.species}</p>}
+            {character.gender && <p className="characters">Gender: {character.gender}</p>}
+            {character.status && <p className="characters">Status: {character.status}</p>}
             {character.origin && character.origin.name && (
-                <p className="character-origin">Origin: {character.origin.name}</p>
+                <p className="characters">Origin: {character.origin.name}</p>
                 )}
         </div>
         </div>

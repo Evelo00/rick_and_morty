@@ -49,7 +49,7 @@ function Card({ id, name, species, gender, image, onClose, location, origin, age
             <button onClick={handleClick}>X</button>
             </div>
             <img src={image} alt={name} />
-            <Link to={`/detail/${id}`}>
+            <Link className='card-link' to={`/detail/${id}`}>
                 <h2 className='card-name'>{name}</h2>
             </Link>
             <p className='card-text'>
