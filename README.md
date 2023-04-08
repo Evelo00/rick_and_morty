@@ -1,57 +1,70 @@
-# Rick and Morty API Consumer
-Este repositorio contiene una aplicación web que realiza el consumo de la API de Rick & Morty.
+# Getting Started with Create React App
 
-La página web está desarrollada con React.js, utilizando HTML y CSS para la maquetación y diseño.
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-La API de Rick & Morty es una API RESTful que proporciona información sobre personajes, episodios y ubicaciones de la serie de televisión Rick & Morty. Puedes encontrar más información sobre la API y su documentación en el siguiente enlace: https://rickandmortyapi.com/
+## Available Scripts
 
-Rick and Morty API
+In the project directory, you can run:
 
-Funcionalidades
-La aplicación web permite realizar las siguientes acciones:
+### `npm start`
 
-Ver la lista de personajes de la serie
-Ver la información detallada de un personaje específico
-Buscar personajes por nombre
-Filtrar personajes por especie, género y estado
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
+### `npm test`
 
-<h2> Instalación y configuración </h2>
-Si deseas instalar y configurar la aplicación en tu equipo, puedes seguir los siguientes pasos:
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-Clona este repositorio en tu máquina local.
+### `npm run build`
 
-Abre una terminal y navega hasta el directorio del repositorio.
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-Ejecuta el siguiente comando para instalar las dependencias del proyecto:
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-```npm install```
-Ejecuta el siguiente comando para iniciar la aplicación:
+### `npm run eject`
 
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-```npm start ```
-La aplicación se abrirá en tu navegador web predeterminado en la dirección http://localhost:3000.
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-<h3>Contribuir</h3>
-Si deseas contribuir a este proyecto, puedes hacerlo siguiendo estos pasos:
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-<h3>Haz un fork de este repositorio.</h3>
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-Clona tu fork en tu máquina local.
+## Learn More
 
-Crea una nueva rama para tu contribución:
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
+To learn React, check out the [React documentation](https://reactjs.org/).
 
-```git checkout -b mi-contribucion```
-Realiza tus cambios y haz commit de los mismos:
+### Code Splitting
 
-```git commit -m "Mi contribución"```
-Envía tus cambios a tu fork:
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
+### Analyzing the Bundle Size
 
-``` git push origin mi-contribucion ```
-Crea un pull request hacia este repositorio.
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-¡Gracias por tu contribución!
+### Making a Progressive Web App
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `npm run build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
