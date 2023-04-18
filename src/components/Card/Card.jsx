@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useDispatch, useSelector} from 'react-redux';
-import { useState, useEffect} from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useState, useEffect } from 'react';
 import { addFavorite, deleteFavorite } from '../../redux/actions';
 import './Card.css';
 
@@ -29,7 +29,7 @@ function Card({ id, name, species, gender, image, onClose, location, origin, age
                 setIsFav(true);
             }
         })
-}, [myFavorites, id])
+    }, [myFavorites, id])
 
 
     const handleClick = () => {
@@ -39,14 +39,14 @@ function Card({ id, name, species, gender, image, onClose, location, origin, age
     return (
         <div className="card-container">
             <div className="card-buttons">
-            {
-                isFav ? (
-                    <button onClick={handleFavorite}>❤️</button>
-                ) : (
-                    <button onClick={handleFavorite}>🤍</button>
-                )
-            }
-            <button onClick={handleClick}>X</button>
+                {
+                    isFav ? (
+                        <button onClick={handleFavorite}>💚</button>
+                    ) : (
+                        <button onClick={handleFavorite}>🤍</button>
+                    )
+                }
+                <button onClick={handleClick}>X</button>
             </div>
             <img src={image} alt={name} />
             <Link className='card-link' to={`/detail/${id}`}>
@@ -54,10 +54,10 @@ function Card({ id, name, species, gender, image, onClose, location, origin, age
             </Link>
             <p className='card-text'>
                 <div>
-                {species}
+                    {species}
                 </div>
                 <div>
-                {gender}
+                    {gender}
                 </div>
             </p>
         </div>

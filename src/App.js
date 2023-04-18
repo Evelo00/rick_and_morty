@@ -53,7 +53,9 @@ function Form({ setAccess, access }) {
     <div className='form-container'>
 
       <div className='content'>
-        <h2 className='logo'><i class='bx bxs-cat' ></i>Eyver_Vergara</h2>
+        <h2 className='logo'><i class='bx bxs-cat' >
+        </i>  
+        </h2>
         <div className='content-text'>
           <h2>Welcome!<br></br><span>
             Rick & Morty API</span></h2>

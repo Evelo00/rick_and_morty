@@ -1,21 +1,20 @@
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { orderCards, filterCards } from "../../redux/actions";
-import { useDispatch } from "react-redux";
+import "./Favorites.css";
+
 
 
 const Favorites = () => {
     const dispatch = useDispatch();
     const { myFavorites } = useSelector((state) => state);
 
-    let aux = false;
-    const handleOrder = (e) => {
-        aux = !aux;
-        dispatch(orderCards(e.target.value))
+    const handleOrder = (event) => {
+        dispatch(orderCards(event.target.value))
     }
 
-    const handleFilter = (e) => {
-        dispatch(filterCards(e.target.value))
+    const handleFilter = (event) => {
+        dispatch(filterCards(event.target.value))
     }
 
 
@@ -23,38 +22,46 @@ const Favorites = () => {
 
     return (
         <div className="favorites">
-            <h1 className="favorites-title">My Favorites</h1>
-            <select onChange={handleOrder}>
-                <option value="A">Ascendente</option>
-                <option value="D">Descendente</option>
-            </select>
-            <select onChange={handleFilter}>
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
-                <option value="Genderless">Genderless</option>
-                <option value="unknown">unknown</option>
-            </select>
+            <>
+                <h1 className="favorites-title">My Favorites</h1>
+                <div className="favorites-container">
+                    <select onChange={handleOrder} className="select">
+                        <option className="option" value="order" disabled='disabled'>Order By</option>
+                        <option className="option" value="Ascendente">Ascendente</option>
+                        <option className="option" value="Descendente">Descendente</option>
+                    </select>
+                    <select onChange={handleFilter} className="select">
+                        <option className="option" value="filter" disabled='disabled'>Filter By</option>
+                        <option className="option" value="Male">Male</option>
+                        <option className="option" value="Female">Female</option>
+                        <option className="option" value="unknown">unknown</option>
+                        <option className="option" value="Genderless">Genderless</option>
+                    </select>
+                </div>
+            </>
+            <div className="cards">
+                {myFavorites && myFavorites.length > 0 ? (
+                    myFavorites.map((character) => (
 
-            {myFavorites && myFavorites.length > 0 ? (
-                myFavorites.map((character) => (
-                    <div>
-                        <img src={character.image} alt={character.name} />
-                        <Link to={`/detail/${character.id}`}>
-                            <h2 className='card-name'>{character.name}</h2>
-                        </Link>
-                        <p className='card-text'>
-                            <div>
-                                {character.species}
-                            </div>
-                            <div>
-                                {character.gender}
-                            </div>
-                        </p>
-                    </div>
-                ))
-            ) : (
-                <h1>No hay personajes favoritos</h1>
-            )}
+                        <div className="card-container">
+                            <img src={character.image} alt={character.name} />
+                            <Link className='card-link' to={`/detail/${character.id}`}>
+                                <h2 className='card-name'>{character.name}</h2>
+                            </Link>
+                            <p className='card-text'>
+                                <div>
+                                    {character.species}
+                                </div>
+                                <div>
+                                    {character.gender}
+                                </div>
+                            </p>
+                        </div>
+                    ))
+                ) : (
+                    <h1 className="favorites-title">No hay personajes favoritos</h1>
+                )}
+            </div>
         </div>
     );
 }

@@ -31,7 +31,8 @@ const Detail = () => {
 
 
 
-    return <div className="character-info">
+    return <div className="details-info">
+        <div className="character-info">
         <div className="character-image-container">
             {character.image && <img className="character-image" src={character.image} alt={character.name} />}
         </div>
@@ -43,9 +44,10 @@ const Detail = () => {
             {character.status && <p className="characters">Status: {character.status}</p>}
             {character.origin && character.origin.name && (
                 <p className="characters">Origin: {character.origin.name}</p>
-                )}
+            )}
         </div>
         </div>
+    </div>
 };
 
 

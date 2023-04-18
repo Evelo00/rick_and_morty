@@ -7,10 +7,10 @@ export const filterCards = (gender) => {
     }
 };
 
-export const orderCards = (orden) => {
+export const orderCards = (id) => {
     return {
         type: ORDER,
-        payload: orden
+        payload: id
     }
 };
 export const addFavorite = (character) => {
